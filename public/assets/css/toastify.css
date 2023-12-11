@@ -1,0 +1,31 @@
+/* toastify */
+:root {
+    --toastify-error: #eb5757;
+    --toastify-success: #6fcf97;
+    --toastify-warning: #f2c94c;
+    --toastify-gray: #333333;
+    --toastify-gray-2: #4d4d4d;
+    --toastify-gray-3: #828282;
+    --toastify-white: #fff;
+    --toastify-white-2: rgba(255, 255, 255, 0.8);
+}
+.toastify {
+    border-radius: 4px;
+    box-shadow: 0 2px 26px rgba(82,215,0,0.1);
+}
+.toastify.error {
+    background: var(--toastify-white);
+    color: var(--toastify-gray);
+    border: 1px solid var(--toastify-error);
+}
+.toastify.success {
+    background: var(--toastify-white);
+    color: var(--toastify-gray);
+    border: 1px solid var(--toastify-success);
+}
+.toastify.info {
+    background: var(--toastify-white);
+    color: var(--toastify-gray);
+    border: 1px solid var(--toastify-warning);
+}
+/* /_ toastify */
