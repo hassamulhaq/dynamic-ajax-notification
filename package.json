@@ -11,5 +11,9 @@
   "devDependencies": {
     "typescript": "^5.2.2",
     "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1",
+    "toastify-js": "^1.12.0"
   }
 }
