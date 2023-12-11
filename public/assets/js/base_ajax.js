@@ -1,3 +1,5 @@
+import {toastify_status} from "./toastify-constants.js"
+
 (function ($) {
     "use strict";
     //Ajax Modal Submit
@@ -45,7 +47,15 @@
                 processData: false,
                 //****** Ajax call beforeSend function *******
                 beforeSend: function () {
-
+                    Toastify({
+                        className: toastify_status.info,
+                        text: 'Processing...',
+                        duration: 3000,
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                    }).showToast();
                 },
                 //****** Ajax call success function *******
                 success: function (data) {
@@ -53,7 +63,7 @@
                     elem.removeClass('loading disabled');
                     console.log("success", data);
                     Toastify({
-                        className: (data.success) ? 'success' : 'error',
+                        className: (data.success) ? toastify_status.success : toastify_status.error,
                         text: data?.message,
                         duration: 3000,
                         close: true,
@@ -92,15 +102,13 @@
                     if (request?.status == 302) {
                         window.location.reload();
                     }
-                    $(".error-text").remove();
-                    $(".alert-danger").remove();
                     $(elem).find("button[type=submit]").attr("disabled", false);
                     $(elem).find("input[type=submit]").attr("disabled", false);
                     $(elem).find("button[type=submit]").removeClass('loading disabled');
                     $(elem).find("input[type=submit]").removeClass('loading disabled');
                     if (request?.status == 419) {
                         Toastify({
-                            className: (data.success) ? 'success' : 'error',
+                            className: (data.success) ? toastify_status.success : toastify_status.error,
                             text: 'Session has been expired you will redirect to home page shortly',
                             duration: 3000,
                             close: true,
@@ -140,7 +148,7 @@
                     //******Showing dynamic errors at the bottom of the requested input field *******
                     $.each(errorResponse.errors, function (field_name, error) {
                         Toastify({
-                            className: 'error',
+                            className: toastify_status.error,
                             text: error,
                             duration: 3000,
                             close: true,

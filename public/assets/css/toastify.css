@@ -13,6 +13,9 @@
     border-radius: 4px;
     box-shadow: 0 2px 26px rgba(82,215,0,0.1);
 }
+.toastify .toast-close {
+    color: var(--toastify-gray);
+}
 .toastify.error {
     background: var(--toastify-white);
     color: var(--toastify-gray);
